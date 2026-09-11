@@ -2,4 +2,5 @@
   <Project Path="Auth.Api/Auth.Api.csproj" />
   <Project Path="Gateway.Api/Gateway.Api.csproj" />
   <Project Path="Orders.Api/Orders.Api.csproj" />
+  <Project Path="Payment.Api/Payment.Api.csproj" />
 </Solution>
