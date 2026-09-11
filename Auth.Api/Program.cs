@@ -1,4 +1,5 @@
 using Auth.Api.Data;
+using Auth.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,13 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AuthDbContext>(options => 
     options.UseNpgsql(builder.Configuration.GetConnectionString("AuthDb")));
 
+builder.Services.AddScoped<PasswordHasher>();
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddControllers();
+
 var app = builder.Build();
+
+app.MapControllers();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
