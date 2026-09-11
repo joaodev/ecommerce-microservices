@@ -34,7 +34,7 @@ namespace Payment.Api.Services
                 exclusive: false,
                 autoDelete: false);  
 
-            var payload = JsonSerializer.Serialize(new { OrderId = orderId, amount = amount, ApprovedAt = DateTime.UtcNow });
+            var payload = JsonSerializer.Serialize(new { OrderId = orderId, Amount = amount, ApprovedAt = DateTime.UtcNow });
             var body = Encoding.UTF8.GetBytes(payload);
 
             await channel.BasicPublishAsync(
